@@ -3,6 +3,20 @@ server:
 spring:
   application:
     name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: catalog
+          uri: lb://CATALOG-SERVICE
+          predicates:
+            - Path=/api/catalogs/**
+        - id: system
+          uri: lb://ITEM-SERVICE
+          predicates:
+            - Path=/api/items/**
+    loadbalancer:
+      ribbon:
+        enabled: false #To use Spring Cloud Load balancer the default Netflix Ribbon has to be disabled.
 eureka:
   client:
     serviceUrl:
