@@ -9,6 +9,8 @@ import lombok.Setter;
 @Setter
 public class ItemDto {
     
+    @Builder.Default
+    private String description = "Object retrieved from ITEM Microservice";
     private String name;
     private String catalogName;
 }

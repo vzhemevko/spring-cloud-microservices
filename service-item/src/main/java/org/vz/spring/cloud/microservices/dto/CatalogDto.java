@@ -11,6 +11,8 @@ import java.util.List;
 @Setter
 public class CatalogDto {
     
+    @Builder.Default
+    private String description = "Object retrieved from ITEM Microservice";
     private String name;
     private List<ItemDto> items;
 }
